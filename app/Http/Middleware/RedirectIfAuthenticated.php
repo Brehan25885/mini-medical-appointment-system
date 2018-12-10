@@ -21,10 +21,10 @@ class RedirectIfAuthenticated
             return redirect('/doctor');
         }
         if ($guard == "patient" && Auth::guard($guard)->check()) {
-            return redirect('/patient');
+            return redirect('/');
         }
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect('/');
         }
 
         return $next($request);

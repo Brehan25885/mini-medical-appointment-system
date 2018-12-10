@@ -12,10 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    return view('home.home');
+})->name('home');
 
 Auth::routes();
+
+Route::get('/register/doctors', function () {
+    return view('auth.doctors-register');
+});
+Route::post('/register/doctors','Auth\RegisterController@createDoctors')->name('doctor.register');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth:doctor'], function () {

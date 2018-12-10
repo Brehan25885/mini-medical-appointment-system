@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\Auth\Patient;
+use App\Models\Auth\Doctor;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -52,7 +54,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:patients'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -61,14 +63,49 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\Auth\Patient
      */
     protected function create(array $data)
     {
-        return User::create([
+
+
+        return patient::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'image'    =>'Default.png'
         ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Models\Auth\Doctor
+     */
+    protected function createDoctors(Request $request)
+    {
+        $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:doctors'],
+                'password' => ['required', 'string', 'min:6', 'confirmed'],
+                    ]);
+
+        $request['doctor_image'] = 'Default.png';
+
+        if($request->profile_image){
+            $request['doctor_image'] = md5(time()).'.'.$request->profile_image->extension();
+            $request->profile_image->storeAs('public/uploads/doctors' , $request['doctor_image']);
+            }
+        $doctor= Doctor::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password),
+            'image'     => $request->doctor_image,
+        ]);
+        if($doctor){
+            Auth::guard('doctor')->login($doctor);
+            return redirect()->route('home');
+        }
     }
 }
