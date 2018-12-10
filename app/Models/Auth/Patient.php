@@ -1,14 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models\Auth;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Patient extends Authenticatable
 {
     use Notifiable;
+
+    protected $guard = 'patient';
 
     /**
      * The attributes that are mass assignable.

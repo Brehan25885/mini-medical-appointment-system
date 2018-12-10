@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth:doctor'], function () {
+
+                                    include ('routes/doctors.php');
+                            });
+
+Route::group(['middleware'=>'auth:patient'], function () {
+
+                                    include ('routes/patients.php');
+                            });
