@@ -31,11 +31,11 @@
 <body>
     <div id="app">
     <header class="site-header">
-        @include('layouts.header')
+        @include('frontend.layouts.header')
         <main class="py-4">
             @yield('content')
         </main>
-        @include('layouts.footer');
+        @include('frontend.layouts.footer');
     </div>
 </body>
 </html>

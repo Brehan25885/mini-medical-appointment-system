@@ -12,13 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('home.home');
+    return view('frontend.home.home');
 })->name('home');
 
 Auth::routes();
 
 Route::get('/register/doctors', function () {
-    return view('auth.doctors-register');
+    return view('frontend.auth.doctors-register');
 });
 Route::post('/register/doctors','Auth\RegisterController@createDoctors')->name('doctor.register');
 

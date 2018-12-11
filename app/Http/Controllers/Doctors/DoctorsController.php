@@ -18,7 +18,7 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-        return view('doctor');
+        return view('doctors.index');
     }
 
     /**
