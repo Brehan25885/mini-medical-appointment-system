@@ -30,4 +30,10 @@ class Doctor extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getImageAttribute($image)
+    {
+    	return \Storage::url('public/uploads/doctors/'.$image);
+    }
+
 }

@@ -26,6 +26,8 @@ Route::post('/register/doctors','Auth\RegisterController@createDoctors')->name('
 Route::group(['middleware' => 'auth:doctor'], function () {
 
                                     include ('routes/doctors.php');
+                                    include ('routes/schedule.php');
+
                             });
 
 Route::group(['middleware'=>'auth:patient'], function () {

@@ -13,13 +13,11 @@
     <title>Dashboard</title>
 
     <!-- Fontfaces CSS-->
-    <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">
-    <!-- <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('css/fontawesome-all.min.css')}}" rel="stylesheet" media="all"> -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+     <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('css/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('css/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
 
-    <link href="{{asset('css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+    <!-- <link href="{{asset('css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all"> -->
 
     <!-- Bootstrap CSS-->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" media="all">
@@ -27,6 +25,8 @@
     <link href="{{asset('css/animsition.min.css')}}" rel="stylesheet" media="all">
 
     <link href="{{asset('css/hamburgers.min.css')}}" rel="stylesheet" media="all">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" media="all">
 
 
     <!-- Main CSS-->
@@ -41,10 +41,17 @@
    <div class="main-content">
                 <div class="section__content section__content--p30">
                      <div class="container-fluid">
+        @include('doctors.layouts.messages')
+            @yield('content')
 
-                    @yield('content')
 
 
+                    </div>
+                </div>
+    </div>
+    </div>
+
+  <footer>
                      <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -52,12 +59,7 @@
                                 </div>
                             </div>
                     </div>
-
-                    </div>
-                </div>
-    </div>
-    </div>
-
+                    </footer>
   <!-- Jquery JS-->
   <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->
@@ -67,6 +69,7 @@
     <!-- Main JS -->
 
      <script src="{{asset('js/main.js')}}"></script>
+     @stack('after-scripts')
 
 </body>
 
