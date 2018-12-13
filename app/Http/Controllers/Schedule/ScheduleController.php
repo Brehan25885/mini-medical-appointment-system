@@ -84,7 +84,7 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         $task=Schedule::find($id);
-        return view('doctors.schedule.list',compact('task'));
+        return view('doctors.schedule.edit',compact('task'));
 
     }
 
@@ -97,7 +97,9 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $schedule =$this->scheduleRepo->update($request->all(),$id);
+
+        return redirect()->back()->withFlashSuccess('Your Schedule was Updated Successfully');
     }
 
     /**
@@ -108,6 +110,9 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $schedule =$this->scheduleRepo->delete($id);
+        return back()->withFlashSuccess('Entry was Delete successfully');
+
+
     }
 }
