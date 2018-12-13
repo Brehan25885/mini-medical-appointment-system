@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Schedule;
+namespace App\Http\Controllers\Doctors\Schedule;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

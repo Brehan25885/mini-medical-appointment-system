@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('frontend.home.home');
 })->name('home');
 
+include ('routes/frontend.php');
+
+
 Auth::routes();
 
 Route::get('/register/doctors', function () {
@@ -23,14 +26,16 @@ Route::get('/register/doctors', function () {
 Route::post('/register/doctors','Auth\RegisterController@createDoctors')->name('doctor.register');
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware' => 'auth:doctor'], function () {
+Route::group(['middleware' => 'auth:doctor',
+            'namespace' => 'Doctors'], function () {
 
                                     include ('routes/doctors.php');
                                     include ('routes/schedule.php');
 
                             });
 
-Route::group(['middleware'=>'auth:patient'], function () {
+Route::group(['middleware'=>'auth:patient',
+            'namespace' => 'Frontend'], function () {
 
                                     include ('routes/patients.php');
                             });

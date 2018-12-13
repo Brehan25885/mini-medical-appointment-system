@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Doctors;
+namespace App\Http\Controllers\Frontend\Patients;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DoctorsController extends Controller
+class PatientsController extends Controller
 {
    /*  public function __construct()
     {
-        $this->middleware('auth:doctor');
+        $this->middleware('auth:patient');
     } */
     /**
      * Display a listing of the resource.
@@ -18,9 +18,8 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-        return view('doctors.index');
+        return view('patient');
     }
-
     /**
      * Show the form for creating a new resource.
      *
