@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\Auth\Patient;
 use App\Models\Auth\Doctor;
+use App\Models\Department\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -60,6 +61,14 @@ class RegisterController extends Controller
         ]);
     }
 
+
+    public function showRegisterationForm(){
+
+        $departments= Department::all();
+
+        return view('frontend.auth.doctors-register',compact('departments'));
+
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -87,9 +96,10 @@ class RegisterController extends Controller
     protected function createDoctors(Request $request)
     {
         $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:doctors'],
-                'password' => ['required', 'string', 'min:6', 'confirmed'],
+                'name'          => ['required', 'string', 'max:255'],
+                'email'         => ['required', 'string', 'email', 'max:255', 'unique:doctors'],
+                'password'      => ['required', 'string', 'min:6', 'confirmed'],
+                'department_id' =>['required']
                     ]);
 
         $request['doctor_image'] = 'Default.png';
@@ -98,11 +108,16 @@ class RegisterController extends Controller
             $request['doctor_image'] = md5(time()).'.'.$request->profile_image->extension();
             $request->profile_image->storeAs('public/uploads/doctors' , $request['doctor_image']);
             }
+
         $doctor= Doctor::create([
-            'name'      => $request->name,
-            'email'     => $request->email,
-            'password'  => Hash::make($request->password),
-            'image'     => $request->doctor_image,
+            'name'              => $request->name,
+            'email'             => $request->email,
+            'password'          => Hash::make($request->password),
+            'image'             => $request->doctor_image,
+            'department_id'     => $request->department_id,
+            'personal_statement' => $request->about
+
+
         ]);
         if($doctor){
             Auth::guard('doctor')->login($doctor);

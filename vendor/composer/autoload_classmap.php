@@ -30,6 +30,7 @@ return array(
     'App\\Http\\Requests\\StoreScheduleRequest' => $baseDir . '/app/Http/Requests/StoreScheduleRequest.php',
     'App\\Models\\Auth\\Doctor' => $baseDir . '/app/Models/Auth/Doctor.php',
     'App\\Models\\Auth\\Patient' => $baseDir . '/app/Models/Auth/Patient.php',
+    'App\\Models\\Auth\\traits\\DoctorRelationship' => $baseDir . '/app/Models/Auth/traits/DoctorRelationship.php',
     'App\\Models\\Department\\Department' => $baseDir . '/app/Models/Department/Department.php',
     'App\\Models\\Department\\traits\\DepartmentRelationship' => $baseDir . '/app/Models/Department/traits/DepartmentRelationship.php',
     'App\\Models\\Schedule\\Schedule' => $baseDir . '/app/Models/Schedule/Schedule.php',

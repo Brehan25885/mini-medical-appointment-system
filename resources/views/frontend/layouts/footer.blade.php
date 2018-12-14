@@ -53,5 +53,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script type='text/javascript' src="{{asset('js/jquery.countTo.min.js')}}"></script>
     <script type='text/javascript' src="{{asset('js/jquery.barfiller.js')}}"></script>
     <script type='text/javascript' src="{{asset('js/custom.js')}}"></script>
-</body>
-</html>
+

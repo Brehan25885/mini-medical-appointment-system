@@ -33,7 +33,7 @@
 
 
                         <li>
-                            <a href="#">
+                            <a href="/my-appointments">
                                 <i class="fas fa-table"></i>Appointments</a>
                         </li>
 
@@ -65,7 +65,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="/my-appointments">
                                 <i class="fas fa-table"></i>Appointments</a>
                         </li>
 
@@ -89,12 +89,12 @@
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form> -->
-                            <div class="header-button">
+                            <div class="header-button d-flex justify-content-right align-items-right">
 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{auth('doctor')->user()->image}}" alt="{{auth('doctor')->user()->name}}" />
+                                            <img src="{{auth('doctor')->user()->image}}" alt="" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">{{auth('doctor')->user()->name}}</a>

@@ -34,7 +34,10 @@
     <header class="site-header">
         @include('frontend.layouts.header')
             @yield('content')
-        @include('frontend.layouts.footer');
     </div>
+
+ @include('frontend.layouts.footer');
+ <script type='text/javascript' src="{{asset('js/app.js')}}"></script>
+    @stack('after-scripts');
 </body>
 </html>

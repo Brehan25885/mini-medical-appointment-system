@@ -11,31 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home.home');
-})->name('home');
 
+
+include ('routes/home.php');
 include ('routes/frontend.php');
 
 
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
-Route::get('/register/doctors', function () {
-    return view('frontend.auth.doctors-register');
-});
+
+Route::get('/register/doctors','Auth\RegisterController@showRegisterationForm');
 Route::post('/register/doctors','Auth\RegisterController@createDoctors')->name('doctor.register');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['middleware' => 'auth:doctor',
             'namespace' => 'Doctors'], function () {
 
                                     include ('routes/doctors.php');
                                     include ('routes/schedule.php');
+                                    include ('routes/appointments.php');
 
                             });
 
 Route::group(['middleware'=>'auth:patient',
             'namespace' => 'Frontend'], function () {
 
-                                    include ('routes/patients.php');
                             });

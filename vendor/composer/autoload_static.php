@@ -448,6 +448,7 @@ class ComposerStaticInitc3a6d262c355af2d0aaf1e86c6dab5fd
         'App\\Http\\Requests\\StoreScheduleRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreScheduleRequest.php',
         'App\\Models\\Auth\\Doctor' => __DIR__ . '/../..' . '/app/Models/Auth/Doctor.php',
         'App\\Models\\Auth\\Patient' => __DIR__ . '/../..' . '/app/Models/Auth/Patient.php',
+        'App\\Models\\Auth\\traits\\DoctorRelationship' => __DIR__ . '/../..' . '/app/Models/Auth/traits/DoctorRelationship.php',
         'App\\Models\\Department\\Department' => __DIR__ . '/../..' . '/app/Models/Department/Department.php',
         'App\\Models\\Department\\traits\\DepartmentRelationship' => __DIR__ . '/../..' . '/app/Models/Department/traits/DepartmentRelationship.php',
         'App\\Models\\Schedule\\Schedule' => __DIR__ . '/../..' . '/app/Models/Schedule/Schedule.php',

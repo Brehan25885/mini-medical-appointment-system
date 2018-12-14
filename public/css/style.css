@@ -1150,7 +1150,7 @@ ul.tabs-nav .tab-nav.active {
 
 .faq-stuff {
     padding: 100px 0;
-    background: url("images/faq-bg.jpg") no-repeat;
+    background: url("../images/faq-bg.jpg") no-repeat;
     background-size: cover;
 }
 
@@ -1467,11 +1467,11 @@ ul.tabs-nav .tab-nav.active {
     color: #404040;
 }
 
+.contact-form form select,
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
     width: 100%;
-    padding: 15px 20px;
     margin-top: 30px;
     border: 0;
     background: #f0f4f8;

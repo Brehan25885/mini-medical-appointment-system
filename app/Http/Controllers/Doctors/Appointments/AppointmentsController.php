@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\Doctors;
+namespace App\Http\Controllers\Doctors\Appointments;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Auth\Doctor;
+use App\Models\Appointment\Appointment;
 
-class DoctorsController extends Controller
+class AppointmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-       $doctors= Doctor::all();
-        return view('frontend.doctors.index',compact('doctors'));
+        $appointments=auth('doctor')->user()->appointments;
+        return view('doctors.appointments.index',compact('appointments'));
+
     }
 
     /**
@@ -48,8 +49,7 @@ class DoctorsController extends Controller
      */
     public function show($id)
     {
-        $doctor= Doctor::find($id);
-        return view('frontend.appointments.create',compact('doctor'));
+        //
     }
 
     /**
@@ -60,7 +60,14 @@ class DoctorsController extends Controller
      */
     public function edit($id)
     {
-        //
+       $appointment =Appointment::find($id);
+
+       if ($appointment) {
+        $appointment->update([
+            'is_confirmed' => '1'
+        ]);
+       }
+       return redirect()->back()->withFlashSucess('Confirmed');
     }
 
     /**
@@ -85,6 +92,4 @@ class DoctorsController extends Controller
     {
         //
     }
-
-    
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-    /**
+    /* *
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -15,9 +15,9 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+     public function handle($request, Closure $next, $guard = null)
     {
-        if ($guard == "doctor" && Auth::guard($guard)->check()) {
+       /*  if ($guard == "doctor" && Auth::guard($guard)->check()) {
             return redirect('/doctor');
         }
         if ($guard == "patient" && Auth::guard($guard)->check()) {
@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
         }
         if (Auth::guard($guard)->check()) {
             return redirect('/');
-        }
+        } */
 
         return $next($request);
     }

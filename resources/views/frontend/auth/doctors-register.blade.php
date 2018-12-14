@@ -41,6 +41,28 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="department" class="col-md-4 col-form-label text-md-right">Departments</label>
+
+                            <div class="col-md-6">
+                                <select name="department_id" required="required">
+                                <option value="0">Select Item</option>
+                                @foreach($departments as $department)
+                                <option value="{{$department->id}}"> {{$department->name}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
+                           <label for="about" class="col-md-4 col-form-label text-md-right">{{ __('About you') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="about" type="text" class="form-control" name="about" value="{{ old('about') }}" required>
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

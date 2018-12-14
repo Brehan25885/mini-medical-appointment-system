@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\Doctors;
+namespace App\Http\Controllers\Frontend\Appointments;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Auth\Doctor;
-
-class DoctorsController extends Controller
+use App\Models\Appointment\Appointment;
+use App\Models\Schedule\Schedule;
+class AppointmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-       $doctors= Doctor::all();
-        return view('frontend.doctors.index',compact('doctors'));
+        //
     }
 
     /**
@@ -26,7 +25,6 @@ class DoctorsController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -37,7 +35,16 @@ class DoctorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appointment=Appointment::create([
+                            'name'          => $request->name,
+                            'date'          => $request->date,
+                            'time'          => $request->time,
+                            'doctor_id'     => $request->doctor_id,
+                            'patient_id'    => auth('patient')->user()->id
+        ]);
+        if($appointment){
+            return redirect()->back()->withFlashSuccess('Appointment is created successfully');
+        }
     }
 
     /**
@@ -48,8 +55,7 @@ class DoctorsController extends Controller
      */
     public function show($id)
     {
-        $doctor= Doctor::find($id);
-        return view('frontend.appointments.create',compact('doctor'));
+        //
     }
 
     /**
@@ -86,5 +92,13 @@ class DoctorsController extends Controller
         //
     }
 
-    
+
+    public function getScheduleTime($day)
+    {
+        $days=Schedule::where('day',$day)->pluck('from');
+
+        return $days;
+    }
+
+
 }

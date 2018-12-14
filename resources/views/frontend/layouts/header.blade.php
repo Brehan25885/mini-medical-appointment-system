@@ -13,7 +13,7 @@
                                 @if(auth('patient')->user() || auth('doctor')->user() )
                                 <li><a href="/logout">Logout</a></li>
                                 @else
-                                <li><a href="/login">login/register</a></li>
+                                <li><a href="/login">Login/Register</a></li>
                                 @endif
 
                                 <li class="call-btn button gradient-bg mt-3 mt-md-0">

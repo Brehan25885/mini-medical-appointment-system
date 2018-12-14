@@ -35,3 +35,12 @@ $factory->define(App\Models\Auth\Patient::class, function (Faker $faker) {
     ];
 });
 
+
+$factory->define(App\Models\Department\Department::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'description' => $faker->paragraph,
+
+    ];
+});
+

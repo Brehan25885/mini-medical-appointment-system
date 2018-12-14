@@ -5,10 +5,10 @@ namespace App\Models\Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\Auth\traits\DoctorRelationship;
 class Doctor extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, DoctorRelationship;
 
     protected $guard = 'doctor';
 
@@ -19,7 +19,7 @@ class Doctor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','image'
+        'name', 'email', 'password','image','department_id','personal_statement'
     ];
 
     /**
