@@ -64,19 +64,7 @@
         </div>
     </div>
 
-    @if (session()->get('flash_success'))
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-
-        @if(is_array(json_decode(session()->get('flash_success'), true)))
-            {!! implode('', session()->get('flash_success')->all(':message<br/>')) !!}
-        @else
-            {!! session()->get('flash_success') !!}
-        @endif
-    </div>
-    @endif
+   @include('doctors.layouts.messages')
     <div class="contact-form">
         <div class="container">
             <div class="row">
@@ -92,7 +80,7 @@
                 <div class="form-group">
                 <label>Select A Day</label>
                 <select name="date" class="form-control" id="day">
-                <option value="0"> select</option>
+                <option value=""> select</option>
                  @foreach ($doctor->schedule as $schedule)
                  <option id="{{$schedule->id}}" value="{{$schedule->day}}"> {{$schedule->day}}</option>
                  @endforeach
@@ -101,7 +89,7 @@
                  <div class="form-group">
                 <label>Select A Time</label>
                 <select name="time" id="time" class="form-control">
-                 <option value="0"> select </option>
+                 <option value=""> select </option>
                 </select>
                  </div>
 

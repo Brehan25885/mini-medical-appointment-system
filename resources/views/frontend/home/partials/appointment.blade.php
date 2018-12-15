@@ -26,32 +26,6 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-5 mt-5 mt-lg-0">
-                    <div class="appointment-box">
-                        <h2 class="d-flex align-items-center">Make an Appointment</h2>
-
-                        <form class="d-flex flex-wrap justify-content-between">
-                            <select class="select-department">
-                                <option value="value1">Select Department</option>
-                                <option value="value2">Select Department 1</option>
-                                <option value="value3">Select Department 2</option>
-                            </select>
-
-                            <select class="select-doctor">
-                                <option>Select Doctor</option>
-                                <option>Select Doctor 1</option>
-                                <option>Select Doctor 2</option>
-                            </select>
-
-                            <input type="text" placeholder="Name">
-
-                            <input type="number" placeholder="Phone No">
-
-                            <input class="button gradient-bg" type="submit" value="Boom Appoitnment">
-                        </form>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>

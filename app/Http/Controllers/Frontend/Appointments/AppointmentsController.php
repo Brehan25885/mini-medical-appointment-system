@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Appointments;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreAppointmentRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment\Appointment;
 use App\Models\Auth\Doctor;
@@ -38,7 +39,7 @@ class AppointmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAppointmentRequest $request)
     {
         $appointment=Appointment::create([
                             'name'          => $request->name,
