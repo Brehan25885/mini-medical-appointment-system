@@ -47,6 +47,15 @@ $(function() {
                     url : '{{ route('schedule.edit', $task->id) }}'
                 },
                 @endforeach
+                @foreach($appointments as $appointment)
+                {
+                    title : '{{ $appointment->name }}',
+                    start : '{{ $appointment->date }}T{{$appointment->time}}',
+                    color: '#910365',
+                    textColor:'#000'
+
+                },
+                @endforeach
             ]
         })
     });

@@ -89,7 +89,7 @@
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form> -->
-                            <div class="header-button d-flex justify-content-right align-items-right">
+                            <div class="header-button">
 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">

@@ -94,7 +94,7 @@
                 <select name="date" class="form-control" id="day">
                 <option value="0"> select</option>
                  @foreach ($doctor->schedule as $schedule)
-                 <option id="{{$schedule->id}}" value="{{$schedule->day}}"> {{$schedule->day->format('D')}}</option>
+                 <option id="{{$schedule->id}}" value="{{$schedule->day}}"> {{$schedule->day}}</option>
                  @endforeach
                  </select>
                  </div>

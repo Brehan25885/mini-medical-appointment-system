@@ -24,7 +24,9 @@ class ScheduleController extends Controller
     public function index()
     {
         $tasks=Schedule::all();
-        return view ('doctors.schedule.calendar',compact('tasks'));
+        $appointments=auth('doctor')->user()->appointments;
+
+        return view ('doctors.schedule.calendar',compact('tasks','appointments'));
 
     }
 
