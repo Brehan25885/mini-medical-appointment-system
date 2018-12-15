@@ -42,7 +42,7 @@ class ScheduleRepository extends BaseRepository{
 
 
 
-  
+
      /**
      * @param Schedule  $id
      * @param array $data
@@ -77,7 +77,7 @@ class ScheduleRepository extends BaseRepository{
 
     /**
      * @param Schedule $id
-     * 
+     *
      */
 
      public function delete($id){
@@ -87,6 +87,6 @@ class ScheduleRepository extends BaseRepository{
             $schedule->delete();
         }
      }
-    
+
 
 }

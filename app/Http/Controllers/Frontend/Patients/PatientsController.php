@@ -18,7 +18,6 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        return view('patient');
     }
     /**
      * Show the form for creating a new resource.

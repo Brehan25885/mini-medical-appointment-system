@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Doctors\Appointments;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment\Appointment;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\appointmentConfirmed;
+
 
 class AppointmentsController extends Controller
 {
@@ -63,9 +66,14 @@ class AppointmentsController extends Controller
        $appointment =Appointment::find($id);
 
        if ($appointment) {
-        $appointment->update([
+        $confirmed=$appointment->update([
             'is_confirmed' => '1'
         ]);
+        $data=[
+            'appointment'   => $appointment,
+            'doctor'        =>auth('doctor')->user()->name
+        ];
+        Mail::to($appointment->patient->email)->send(new appointmentConfirmed($data));
        }
        return redirect()->back()->withFlashSucess('Confirmed');
     }
