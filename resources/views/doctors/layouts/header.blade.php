@@ -89,7 +89,7 @@
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form> -->
-                            <div class="header-button">
+                            <div class="header-button ml-auto">
 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
