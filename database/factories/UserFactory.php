@@ -18,8 +18,11 @@ $factory->define(App\Models\Auth\Doctor::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'image' => 'Default.png',
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'image'         => 'Default.png',
+        'password'      => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'department_id' =>function(){
+                            return factory(\App\Models\Department\Department::class)->create()->id;},
+        'personal_statement'=>$faker->paragraph,
         'remember_token' => str_random(10),
     ];
 });
